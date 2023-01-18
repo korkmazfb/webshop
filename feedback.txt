@@ -1,0 +1,10 @@
+style css scheiden 
+
+- word _ = gefixed
+refactor vsc = niet gevonden
+
+	header("Location: ../index.php?error=User Name is Required");
+    exit; bij zo headers 
+    als het niet werkt die(); = gefixed
+    
+

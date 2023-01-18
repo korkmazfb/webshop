@@ -12,12 +12,10 @@
 	<link rel="stylesheet" href="Logingebruikers.css">
 </head>
 <body>
-      <div class="container d-flex justify-content-center align-items-center"
-      style="min-height: 100vh">
-      	<form class="border shadow p-3 rounded"
-      	      action="php/check-login.php" 
-      	      method="post" 
-      	      style="width: 450px;">	 
+      <div class=" d-flex justify-content-center align-items-center">
+      	<form class="shadow p-3 rounded"
+      	      action="php/check_login.php" 
+      	      method="post" >	 
       	      <h1 class="text-center p-3">LOGIN</h1>
       	      <?php if (isset($_GET['error'])) { ?>
       	      <div class="alert alert-danger" role="alert">
@@ -61,4 +59,5 @@
 </html>
 <?php }else{
 	header("Location: home.php");
+	exit();
 } ?>
