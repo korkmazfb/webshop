@@ -10,4 +10,5 @@ Ali: Inlogvoor verschillende soorten gebruikers & dashboard
 
 Yusuf: Rollen en rechten verschillende soorten gebruikers, Dashboard en Testen en uitproberen 
 
-Bilal: Dashboard
+Bilal: Content management Dashboard
+
