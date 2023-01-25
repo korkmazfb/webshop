@@ -4,35 +4,35 @@
 <?php  
 session_start();
 include "../db_conn.php";
+include "./c_l_functions.php";
 
-
+$message = [];
 
 if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role'])) {
 	// var_dump($_POST);
 
-
-	function test_input($data) {
-	  $data = trim($data);
-	  $data = stripslashes($data);
-	  $data = htmlspecialchars($data);
-	//   echo $data;
-	  return $data;
-	}
+	test_input($data); //test input functie
 
 	$username = test_input($_POST['username']);
 	$password = test_input($_POST['password']); 
 	$role = test_input($_POST['role']);
 
 	if (empty($username)) {
-		header("Location: ../index.php?error=User Name is Required");
-		exit;
-	}else if (empty($password)) {
+
+		array_push($message, 'User name is required!');
+		 header("Location: ../index.php?error=User Name is Required");
+		 exit;
+	}
+	
+	else if (empty($password)) {
+		array_push($message, 'wachtwoord is required!');
 		header("Location: ../index.php?error=Password is Required");
-		exit;
-	}else {
+		 exit;
+	} else {
+
+
 
 		$password = md5($password);
-
 
         //De select query van mijn database
         $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
@@ -41,9 +41,6 @@ if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['role
 
         $result = mysqli_query($conn, $sql);
 		
-
-	
-
         if (mysqli_num_rows($result) === 1) {
         	$row = mysqli_fetch_assoc($result);
 		var_dump($row);
